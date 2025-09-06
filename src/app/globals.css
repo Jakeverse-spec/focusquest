@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen;
+  }
+}
+
+@layer components {
+  .game-card {
+    @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-4 sm:p-6 transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:shadow-lg hover:scale-105 text-sm sm:text-base;
+  }
+  
+  .btn-game {
+    @apply bg-game-gold hover:bg-yellow-500 text-white font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 hover:shadow-xl text-sm sm:text-base;
+  }
+
+  /* Mobile-first responsive utilities */
+  .mobile-container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+
+  .mobile-text {
+    @apply text-sm sm:text-base;
+  }
+
+  .mobile-heading {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .mobile-card {
+    @apply p-3 sm:p-4 lg:p-6;
+  }
+
+  /* Touch-friendly buttons */
+  .touch-button {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+
+  /* Mobile navigation */
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2 sm:relative sm:bottom-auto sm:border-t-0 sm:p-0 sm:bg-transparent;
+  }
+
+  /* Responsive sidebar */
+  .mobile-sidebar {
+    @apply fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:shadow-none lg:z-auto;
+  }
+
+  .mobile-sidebar.open {
+    @apply translate-x-0;
+  }
+
+  /* Ensure sidebar doesn't block clicks when closed */
+  .mobile-sidebar:not(.open) {
+    @apply pointer-events-none lg:pointer-events-auto;
+  }
+
+  .mobile-sidebar.open {
+    @apply pointer-events-auto;
+  }
+
+  /* Fix button interactions */
+  button, a, input, select, textarea {
+    @apply relative;
+    z-index: 1;
+  }
+
+  /* Ensure interactive elements are clickable */
+  .btn-primary, .btn-secondary, .btn-game {
+    @apply relative;
+    z-index: 10;
+  }
+
+  /* Mobile-optimized modals */
+  .mobile-modal {
+    @apply fixed inset-0 z-50 overflow-y-auto;
+  }
+
+  .mobile-modal-content {
+    @apply min-h-screen sm:min-h-0 sm:my-8 w-full sm:max-w-lg sm:mx-auto;
+  }
+
+  /* Responsive game canvas */
+  .mobile-game-canvas {
+    @apply w-full max-w-full overflow-hidden rounded-lg;
+  }
+
+  /* Mobile-friendly forms */
+  .mobile-input {
+    @apply w-full px-3 py-2 text-base sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+  }
+  
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+}
