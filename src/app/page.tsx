@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Sword, Sparkles, Play, Github, ExternalLink, Target, Trophy, Users, Gamepad2 } from 'lucide-react'
+import { Sword, Sparkles, Play, Github, Target, Trophy, Users, Gamepad2 } from 'lucide-react'
 
 export default function Home() {
   const router = useRouter()
